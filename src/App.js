@@ -25,12 +25,18 @@ import FloadingGrid from './components/FloatingGrid'
 function CarShow() {
   return (
     <>
-      <OrbitControls 
-        target={[0, 0.35, 0]}
-        maxPolarAngle={1.45}
+      {/* OrbitControls to allow the user to interact with the scene (rotate, zoom) */}
+      <OrbitControls
+        target={[0, 0.35, 0]}  // Target point of rotation
+        maxPolarAngle={1.45}    // Limit the vertical rotation
+        minDistance={3}         // Minimum zoom distance
+        maxDistance={10}        // Maximum zoom distance to prevent zooming out too far
       />
 
+      {/* PerspectiveCamera with an FOV of 50 degrees */}
       <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
+
+      {/* Set background color to black */}
       <color args={[0, 0, 0]} attach="background" />
 
       <spotLight
